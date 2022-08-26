@@ -7,6 +7,6 @@ if (isset($_GET)){
 
     echo json_encode($data);
 }
-    
+    hihihihi
 ?>
 
