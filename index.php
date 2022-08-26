@@ -1,4 +1,6 @@
 <?php
+include "pdo.php";
+session_start();
 ?>
 <!doctype html>
 <html lang="en">
