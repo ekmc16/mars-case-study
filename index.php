@@ -1,6 +1,6 @@
 <?php
-// require_once "pdo.php";
-// session_start();
+require_once "pdo.php";
+session_start();
 ?>
 <!doctype html>
 <html lang="en">
