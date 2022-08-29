@@ -1,25 +1,24 @@
-$(document).ready(function(){
-  function fetch_martians(){
-    $("#testing123").DataTable({
-      destroy: true,
-      ajax: {
-        url: 'fetch.php',
-        dataSrc: '',
-    },
-      columns: [
-        { data: "name" },
-        { data: "superior" },
-        { data: "base_name" },
-        {
-          sortable: false,
-          "render": function ( data, type, full, meta ) {
-              var buttonID = full.martian_id;
-              return '<a href="#" id='+buttonID+' class="editmartian btn btn-xs btn-secondary">Edit</a><a href="#" id='+buttonID+' class="deletemartian btn btn-xs btn-danger">Delete</a>';
-          }
+function fetch_martians(){
+  $("#testing123").DataTable({
+    destroy: true,
+    ajax: {
+      url: 'fetch.php',
+      dataSrc: '',
+  },
+    columns: [
+      { data: "name" },
+      { data: "superior" },
+      { data: "base_name" },
+      {
+        sortable: false,
+        "render": function ( data, type, full, meta ) {
+            var buttonID = full.martian_id;
+            return '<a href="#" id='+buttonID+' class="editmartian btn btn-xs btn-secondary">Edit</a><a href="#" id='+buttonID+' class="deletemartian btn btn-xs btn-danger">Delete</a>';
         }
-      ],
-    });
-  }
+      }
+    ],
+  });
+}
 $("#openadd").click(function(e){
   e.preventDefault();
   $("#exampleModal").modal("show");
@@ -115,5 +114,4 @@ $("#deletemartian_form").submit(function(e){
       $('#form_output').hide().slideDown().delay(5000).fadeOut(2000);
     }
   })
-});
 });
