@@ -14,7 +14,7 @@ if(isset($_POST)){
       else{
         if(is_null($_POST['base'])){
           $sql = "INSERT INTO martian (first_name, last_name, super_id)
-                  VALUES (:fname, :lname, :baseid, :superid)";
+                  VALUES (:fname, :lname, :superid)";
           $stmt = $pdo->prepare($sql);
           $stmt->execute(array(
               ':fname' => $_POST['first_name'],
@@ -25,7 +25,7 @@ if(isset($_POST)){
         }
         else if(is_null($_POST['superior'])){
           $sql = "INSERT INTO martian (first_name, last_name, base_id)
-                  VALUES (:fname, :lname, :baseid, :superid)";
+                  VALUES (:fname, :lname, :baseid)";
           $stmt = $pdo->prepare($sql);
           $stmt->execute(array(
               ':fname' => $_POST['first_name'],
