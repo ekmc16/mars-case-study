@@ -12,7 +12,7 @@ if(isset($_POST)){
           $error = 'Missing data';
       }
       else{
-        if(is_null($_POST['base']) && is_null($_POST['superior'])){
+        if(strlen($_POST['base']) < 1 && strlen($_POST['superior']) <1 ){
           $error = 'Missing data';
           // $sql = "INSERT INTO martian (first_name, last_name)
           //       VALUES (:fname, :lname)";
