@@ -27,7 +27,7 @@ $("#add_form").submit(function(e){
   e.preventDefault();
   var form_data = $(this).serialize();
   $.ajax({
-      url:"add.php",
+      url:"save.php",
       method:"POST",
       data:form_data,
       dataType:"json",
@@ -52,7 +52,6 @@ $("#add_form").submit(function(e){
 $(document).on('click','.editmartian',function(){
   $("#editModal").modal("show");
   martian_id = $(this).attr('id');
-  console.log(martian_id);
   $.ajax({
     url:"fetchinfo.php",
     method:"get",

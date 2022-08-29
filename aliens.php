@@ -150,7 +150,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
               }
             ?>
             </select>
-          </p>
+          </p><input class="form-control" type="text" name="function" value="add" hidden>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -177,6 +177,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
           <input class="form-control" type="text" name="new_last_name" id="new_lastname"></p>
           <p>Superior:
             <select class="form-select" name="superior" id="new_superior">
+              <option value="">N/A</option>
             <?php
               if(!empty($result1)) { 
                 foreach($result1 as $row) {
@@ -189,7 +190,8 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
             </select>
           </p>
           <p>Base:
-          <select class="form-select" name="base" id="new_base">
+            <select class="form-select" name="base" id="new_base">
+            <option value="">N/A</option>
             <?php
               if(!empty($result)) { 
                 foreach($result as $row) {
@@ -200,7 +202,8 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
               }
             ?>
             </select>
-          </p>
+          </p><input class="form-control" type="text" name="function" value="update" hidden>
+          <input class="form-control" type="text" name="martian_id" id="updateID" value="" hidden>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

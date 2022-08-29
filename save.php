@@ -13,13 +13,28 @@ if(isset($_POST)){
       }
       else{
         if($_POST['base'] === '' && $_POST['superior'] ===''){
-          $sql = "INSERT INTO martian (first_name, last_name)
-                VALUES (:fname, :lname)";
-          $stmt = $pdo->prepare($sql);
-          $stmt->execute(array(
-              ':fname' => $_POST['first_name'],
-              ':lname' => $_POST['last_name']
-          ));
+          if($_POST['function'] == 'add'){
+            $sql = "INSERT INTO martian (first_name, last_name)
+                  VALUES (:fname, :lname)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(array(
+                ':fname' => $_POST['first_name'],
+                ':lname' => $_POST['last_name']
+            ));
+            $success = 'Record Added';
+          }
+          else if ($_POST['function'] == 'update'){
+            $sql = "UPDATE martian SET first_name = :fname,
+                    last_name = :lname
+                    WHERE martian_id = :mid";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(array(
+                ':name' => $_POST['first_name'],
+                ':email' => $_POST['last_name'],
+                ':mid' => $_POST['martian_id']
+            ));
+            $success= 'Record updated';
+          }
         }
         elseif($_POST['base'] === ''){
           $sql = "INSERT INTO martian (first_name, last_name, super_id)
@@ -30,6 +45,7 @@ if(isset($_POST)){
               ':lname' => $_POST['last_name'],
               ':superid' => $_POST['superior']
           ));
+          $success = 'Record Added';
         }
         elseif(($_POST['superior']) === ''){
           $sql = "INSERT INTO martian (first_name, last_name, base_id)
@@ -40,6 +56,7 @@ if(isset($_POST)){
               ':lname' => $_POST['last_name'],
               ':baseid' => $_POST['base']
           ));
+          $success = 'Record Added';
         }
         else{
           $sql = "INSERT INTO martian (first_name, last_name, base_id, super_id)
@@ -51,8 +68,8 @@ if(isset($_POST)){
               ':baseid' => $_POST['base'],
               ':superid' => $_POST['superior']
             ));
+            $success = 'Record Added';
         }
-        $success = 'Record Added';
       }
   }
 
