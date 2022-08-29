@@ -15,12 +15,13 @@ require_once "pdo.php";
         $sql = "INSERT INTO martian (first_name, last_name, base_id, super_id)
                 VALUES (:fname, :lname, :baseid, :superid)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute(array(
+        $a=$stmt->execute(array(
             ':fname' => 'test',
             ':lname' => 'test',
             ':baseid' => '',
             ':superid' => ''
           ));
+        print_r($a);
         // $success = 'Record Added';
 //       }
 //   }
