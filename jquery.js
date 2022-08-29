@@ -59,6 +59,7 @@ $(document).on('click','.editmartian',function(){
     data:{martian_id:martian_id},
     dataType:"json",
     success:function(data){
+      console.log(data);
       $("#new_firstname").val(data.first_name);
       $("#new_lastname").val(data.last_name);
       $("#new_superior option[value='"+ data.super_id +"']").attr("selected", "selected");
