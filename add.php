@@ -12,7 +12,16 @@ if(isset($_POST)){
           $error = 'Missing data';
       }
       else{
-        if(is_null($_POST['base'])){
+        if(is_null($_POST['base']) && is_null($_POST['super_id'])){
+          $sql = "INSERT INTO martian (first_name, last_name)
+                    VALUES (:fname, :lname)";
+          $stmt = $pdo->prepare($sql);
+          $stmt->execute(array(
+              ':fname' => $_POST['first_name'],
+              ':lname' => $_POST['last_name']
+          ));
+        }
+        else if(is_null($_POST['base'])){
           $sql = "INSERT INTO martian (first_name, last_name, super_id)
                   VALUES (:fname, :lname, :superid)";
           $stmt = $pdo->prepare($sql);
@@ -20,8 +29,7 @@ if(isset($_POST)){
               ':fname' => $_POST['first_name'],
               ':lname' => $_POST['last_name'],
               ':superid' => $_POST['superior']
-            ));
-
+          ));
         }
         else if(is_null($_POST['superior'])){
           $sql = "INSERT INTO martian (first_name, last_name, base_id)
@@ -31,7 +39,7 @@ if(isset($_POST)){
               ':fname' => $_POST['first_name'],
               ':lname' => $_POST['last_name'],
               ':baseid' => $_POST['base']
-            ));
+          ));
         }
         else{
         $sql = "INSERT INTO martian (first_name, last_name, base_id, super_id)
