@@ -5,24 +5,21 @@ $error='';
 $success='';
 
 if(isset($_POST)){
-  if( ($_POST['name']) && isset($_POST['email'])
-      && isset($_POST['password'])) {
+  if( ($_POST['first_name']) && isset($_POST['last_name'])
+      && isset($_POST['base_id']) && isset($_POST['superior_id'])) {
       // Data validation
-      if ( strlen($_POST['name']) < 1 || strlen($_POST['password']) < 1) {
+      if ( strlen($_POST['first_name']) < 1 || strlen($_POST['last_name']) < 1) {
           $error = 'Missing data';
       }
-
-      else if ( strpos($_POST['email'],'@') === false ) {
-          $error = 'Invalid E-mail Address';
-      }
-
-      else{$sql = "INSERT INTO users (name, email, password)
-                VALUES (:name, :email, :password)";
+      else{$sql = "INSERT INTO users (first_name, last_name, base_id, super_id)
+                VALUES (:fname, :lname, :baseid, :superid)";
       $stmt = $pdo->prepare($sql);
       $stmt->execute(array(
-          ':name' => $_POST['name'],
-          ':email' => $_POST['email'],
-          ':password' => $_POST['password']));
+          ':fname' => $_POST['first_name'],
+          ':lname' => $_POST['last_name'],
+          ':baseid' => $_POST['base'],
+          ':superid' => $_POST['superior']
+        ));
       $success = 'Record Added';
       }
   }
