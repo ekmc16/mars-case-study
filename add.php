@@ -14,13 +14,13 @@ if(isset($_POST)){
       else{
         // if(strlen($_POST['base']) < 1 && strlen($_POST['superior']) <1 ){
         //   $error = 'Missing data';
-          $sql = "INSERT INTO martian (first_name, last_name)
-                VALUES (:fname, :lname)";
-          $stmt = $pdo->prepare($sql);
-          $stmt->execute(array(
-              ':fname' => $_POST['first_name'],
-              ':lname' => $_POST['last_name']
-          ));
+          // $sql = "INSERT INTO martian (first_name, last_name)
+          //       VALUES (:fname, :lname)";
+          // $stmt = $pdo->prepare($sql);
+          // $stmt->execute(array(
+          //     ':fname' => $_POST['first_name'],
+          //     ':lname' => $_POST['last_name']
+          // ));
         // }
         // elseif(is_null($_POST['base'])){
         //   $sql = "INSERT INTO martian (first_name, last_name, super_id)
@@ -52,9 +52,9 @@ if(isset($_POST)){
         //       ':baseid' => $_POST['base'],
         //       ':superid' => $_POST['superior']
         //     ));
-        }
         $success = 'Record Added';
-      }
+        }
+        
   }
 
   else{
