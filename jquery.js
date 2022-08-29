@@ -59,6 +59,7 @@ $(document).on('click','.editmartian',function(){
     dataType:"json",
     success:function(data){
       console.log(data.super_id);
+      console.log(data.base_id);
       $("#new_firstname").val(data.first_name);
       $("#new_lastname").val(data.last_name);
       if(data.super_id != null){
