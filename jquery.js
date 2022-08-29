@@ -64,8 +64,8 @@ $(document).on('click','.editmartian',function(){
       console.log(data.base_id);
       $("#new_firstname").val(data.first_name);
       $("#new_lastname").val(data.last_name);
-      $("#new_superior option[value="+ data.super_id +"]").attr("selected", "selected");
-      $("#new_base option[value="+ data.base_id +"]").attr("selected", "selected");
+      $("#new_superior option[value="+ data.super_id +"]").prop("selected", true);
+      $("#new_base option[value="+ data.base_id +"]").prop("selected", true);
       $("#updateID").val(data.martian_id);
     }
   })
