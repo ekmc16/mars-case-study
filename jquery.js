@@ -8,13 +8,13 @@ $(document).ready(function(){
         dataSrc: '',
     },
       columns: [
-        { data: "email" },
-        { data: "email" },
-        { data: "password" },
+        { data: "name" },
+        { data: "superior" },
+        { data: "base" },
         {
           sortable: false,
           "render": function ( data, type, full, meta ) {
-              var buttonID = full.user_id;
+              var buttonID = full.martian_id;
               return '<a href="#" id='+buttonID+' class="edit btn btn-xs btn-secondary">Edit</a><a href="#" id='+buttonID+' class="delete btn btn-xs btn-danger">Delete</a>';
           }
         }
