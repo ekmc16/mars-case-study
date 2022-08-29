@@ -23,7 +23,7 @@ if(isset($_POST)){
             ));
             $success = 'Record Added';
           }
-          elseif($_POST['function'] == 'update'){
+          elseif($_POST['function'] == 'edit'){
             // $sql = "UPDATE martian SET first_name = :fname,
             //         last_name = :lname, super_id = :sid,
             //         base_id = :bid
@@ -37,40 +37,40 @@ if(isset($_POST)){
             //     ':mid' => $_POST['martian_id']));
             $success= 'test123';
           }
-        }
-        elseif($_POST['base'] === ''){
-          $sql = "INSERT INTO martian (first_name, last_name, super_id)
-                  VALUES (:fname, :lname, :superid)";
-          $stmt = $pdo->prepare($sql);
-          $stmt->execute(array(
-              ':fname' => $_POST['first_name'],
-              ':lname' => $_POST['last_name'],
-              ':superid' => $_POST['superior']
-          ));
-          $success = 'Record Added';
-        }
-        elseif(($_POST['superior']) === ''){
-          $sql = "INSERT INTO martian (first_name, last_name, base_id)
-                  VALUES (:fname, :lname, :baseid)";
-          $stmt = $pdo->prepare($sql);
-          $stmt->execute(array(
-              ':fname' => $_POST['first_name'],
-              ':lname' => $_POST['last_name'],
-              ':baseid' => $_POST['base']
-          ));
-          $success = 'Record Added';
-        }
-        else{
-          $sql = "INSERT INTO martian (first_name, last_name, base_id, super_id)
-                  VALUES (:fname, :lname, :baseid, :superid)";
-          $stmt = $pdo->prepare($sql);
-          $stmt->execute(array(
-              ':fname' => $_POST['first_name'],
-              ':lname' => $_POST['last_name'],
-              ':baseid' => $_POST['base'],
-              ':superid' => $_POST['superior']
-            ));
-            $success = 'Record Added';
+        // }
+        // elseif($_POST['base'] === ''){
+        //   $sql = "INSERT INTO martian (first_name, last_name, super_id)
+        //           VALUES (:fname, :lname, :superid)";
+        //   $stmt = $pdo->prepare($sql);
+        //   $stmt->execute(array(
+        //       ':fname' => $_POST['first_name'],
+        //       ':lname' => $_POST['last_name'],
+        //       ':superid' => $_POST['superior']
+        //   ));
+        //   $success = 'Record Added';
+        // }
+        // elseif(($_POST['superior']) === ''){
+        //   $sql = "INSERT INTO martian (first_name, last_name, base_id)
+        //           VALUES (:fname, :lname, :baseid)";
+        //   $stmt = $pdo->prepare($sql);
+        //   $stmt->execute(array(
+        //       ':fname' => $_POST['first_name'],
+        //       ':lname' => $_POST['last_name'],
+        //       ':baseid' => $_POST['base']
+        //   ));
+        //   $success = 'Record Added';
+        // }
+        // else{
+        //   $sql = "INSERT INTO martian (first_name, last_name, base_id, super_id)
+        //           VALUES (:fname, :lname, :baseid, :superid)";
+        //   $stmt = $pdo->prepare($sql);
+        //   $stmt->execute(array(
+        //       ':fname' => $_POST['first_name'],
+        //       ':lname' => $_POST['last_name'],
+        //       ':baseid' => $_POST['base'],
+        //       ':superid' => $_POST['superior']
+        //     ));
+        //     $success = 'Record Added';
         }
       }
   }
