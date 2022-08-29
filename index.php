@@ -81,9 +81,9 @@ session_start();
         <table id="testing123" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Position</th>
+                <th>Alien name</th>
+                <th>Superior name</th>
+                <th>Base</th>
                 <th></th>
             </tr>
         </tfoot>
@@ -91,9 +91,9 @@ session_start();
           </tbody>
           <tfoot>
             <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Position</th>
+                <th>Alien name</th>
+                <th>Superior name</th>
+                <th>Base</th>
             </tr>
         </tfoot>
         </table>
