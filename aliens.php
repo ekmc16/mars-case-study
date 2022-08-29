@@ -123,20 +123,6 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
           <input class="form-control" type="text" name="first_name"></p>
           <p>LastName:
           <input class="form-control" type="text" name="last_name"></p>
-          <p>Base:
-          <select name="base" class="form-select">
-            <option value="">N/A</option>
-            <?php
-              if(!empty($result)) { 
-                foreach($result as $row) {
-              ?>
-                  <option value="<?php echo $row["base_id"]; ?>"><?php echo $row["base_name"]; ?></option>
-            <?php
-                }
-              }
-            ?>
-            </select>
-          </p>
           <p>Superior:
             <select name="superior" class="form-select">
               <option value="">N/A</option>
@@ -146,6 +132,20 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                 ?>
                   <option value="<?php echo $row["martian_id"]; ?>"><?php echo $row["name"]; ?></option>
                 <?php
+                }
+              }
+            ?>
+            </select>
+          </p>
+          <p>Base:
+          <select name="base" class="form-select">
+            <option value="">N/A</option>
+            <?php
+              if(!empty($result)) { 
+                foreach($result as $row) {
+              ?>
+                  <option value="<?php echo $row["base_id"]; ?>"><?php echo $row["base_name"]; ?></option>
+            <?php
                 }
               }
             ?>
@@ -175,19 +175,6 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
           <input class="form-control" type="text" name="new_first_name" id="new_firstname"></p>
           <p>LastName:
           <input class="form-control" type="text" name="new_last_name" id="new_lastname"></p>
-          <p>Base:
-          <select class="form-select" name="base" id="new_base">
-            <?php
-              if(!empty($result)) { 
-                foreach($result as $row) {
-              ?>
-                  <option value="<?php echo $row["base_id"]; ?>"><?php echo $row["base_name"]; ?></option>
-            <?php
-                }
-              }
-            ?>
-            </select>
-          </p>
           <p>Superior:
             <select class="form-select" name="superior" id="new_superior">
             <?php
@@ -196,6 +183,19 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                 ?>
                   <option value="<?php echo $row["martian_id"]; ?>"><?php echo $row["name"]; ?></option>
                 <?php
+                }
+              }
+            ?>
+            </select>
+          </p>
+          <p>Base:
+          <select class="form-select" name="base" id="new_base">
+            <?php
+              if(!empty($result)) { 
+                foreach($result as $row) {
+              ?>
+                  <option value="<?php echo $row["base_id"]; ?>"><?php echo $row["base_name"]; ?></option>
+            <?php
                 }
               }
             ?>
