@@ -65,13 +65,13 @@ $(document).on('click','.editmartian',function(){
         $("#new_superior option[value='"+ data.super_id +"']").attr("selected", "selected");
       }
       else{
-        $("#new_superior option[value='']").attr("selected", "selected");
+        $("#new_superior").attr("selected", false);
       }
       if(data.base_id != NULL){
         $("#new_base option[value='"+ data.base_id +"']").attr("selected", "selected");
       }
       else{
-        $("#new_base option[value='']").attr("selected", "selected");
+        $("#new_base").attr("selected", false);
       }
       $("#updateID").val(data.martian_id);
     }
