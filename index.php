@@ -10,7 +10,7 @@ session_start();
     <title>PHP Demo</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -72,17 +72,33 @@ session_start();
     <?php
         require_once("nav.php")
     ?>
-  <main class="flex-shrink-0">
-    <div class="container">
+  <main class="flex-shrink-0 mb-5">
+    <div class="container mb-5">
         <div class="row">
             <p class="text-center h2">Simple CRUD Application</p>
             <span id="form_output"></span>
         </div>
-        <table class="mt-3 table table-bordered">
+        <table id="testing123" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Position</th>
+                <th></th>
+            </tr>
+        </tfoot>
           <tbody>
           </tbody>
+          <tfoot>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Position</th>
+            </tr>
+        </tfoot>
         </table>
-    <a href="#" id="openadd"type="button" class="btn btn-primary">Add New</a>
+      </div>
+   
 
 
 <!-- Modal -->
@@ -161,6 +177,7 @@ session_start();
 ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="jquery.js"></script> 
 </body>
 </html>
