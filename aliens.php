@@ -1,6 +1,10 @@
 <?php
 require_once "pdo.php";
 session_start();
+
+$stmt = $pdo->query("SELECT base_id,base_name FROM base");
+$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+print_r($data);
 ?>
 <!doctype html>
 <html lang="en">
