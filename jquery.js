@@ -50,8 +50,6 @@ $("#add_form").submit(function(e){
   })
 });
 $(document).on('click','.editmartian',function(){
-  $('#new_base option:first').prop('selected',true);
-  $('#new_superior option:first').prop('selected',true);
   $("#editModal").modal("show");
   martian_id = $(this).attr('id');
   $.ajax({
@@ -63,18 +61,18 @@ $(document).on('click','.editmartian',function(){
       console.log(data.super_id);
       $("#new_firstname").val(data.first_name);
       $("#new_lastname").val(data.last_name);
-      // if(data.super_id != null){
-      //   $("#new_superior option[value='"+ data.super_id +"']").attr("selected", "selected");
-      // }
-      // else{
-        // $('#new_superior').find('option:first').attr('selected', 'selected');
-      // }
-      // if(data.base_id != null){
-      //   $("#new_base option[value='"+ data.base_id +"']").attr("selected", "selected");
-      // }
-      // else{
-        // $('#new_base').find('option:first').attr('selected', 'selected');
-      // }
+      if(data.super_id != null){
+        $("#new_superior option[value='"+ data.super_id +"']").attr("selected", "selected");
+      }
+      else{
+        $('#new_base option:first').prop('selected',true);
+      }
+      if(data.base_id != null){
+        $("#new_base option[value='"+ data.base_id +"']").attr("selected", "selected");
+      }
+      else{
+        $('#new_superior option:first').prop('selected',true);
+      }
       $("#updateID").val(data.martian_id);
     }
   })
