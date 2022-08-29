@@ -51,6 +51,8 @@ $("#add_form").submit(function(e){
 });
 $(document).on('click','.editmartian',function(){
   $("#editModal").modal("show");
+  $('#new_superior option:first').prop('selected',true);
+  $('#new_base option:first').prop('selected',true);
   martian_id = $(this).attr('id');
   $.ajax({
     url:"fetchinfo.php",
