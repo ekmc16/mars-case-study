@@ -10,7 +10,7 @@ $(document).ready(function(){
       columns: [
         { data: "name" },
         { data: "superior" },
-        { data: "base" },
+        { data: "base_name" },
         {
           sortable: false,
           "render": function ( data, type, full, meta ) {
