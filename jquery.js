@@ -64,18 +64,8 @@ $(document).on('click','.editmartian',function(){
       console.log(data.base_id);
       $("#new_firstname").val(data.first_name);
       $("#new_lastname").val(data.last_name);
-      if(data.super_id != null){
-        $("#new_superior option[value='"+ data.super_id +"']").attr("selected", "selected");
-      }
-      else{
-        $('#new_superior option:first').prop('selected',true);
-      }
-      if(data.base_id != null){
-        $("#new_base option[value='"+ data.base_id +"']").attr("selected", "selected");
-      }
-      else{
-        $('#new_base option:first').prop('selected',true);
-      }
+      $("#new_superior option[value='"+ data.super_id +"']").attr("selected", "selected");
+      $("#new_base option[value='"+ data.base_id +"']").attr("selected", "selected");
       $("#updateID").val(data.martian_id);
     }
   })
