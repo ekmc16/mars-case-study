@@ -24,18 +24,18 @@ if(isset($_POST)){
             $success = 'Record Added';
           }
           else if ($_POST['function'] == 'update'){
-            $sql = "UPDATE martian SET first_name = :fname,
-                    last_name = :lname, super_id = :sup_id,
-                    base_id = :bid
-                    WHERE martian_id = :martian_id";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute(array(
-                ':fname' => $_POST['first_name'],
-                ':lname' => $_POST['last_name'],
-                ':sup_id' => NULL,
-                ':bid' => NULL,
-                ':mid' => $_POST['martian_id']));
-            $success= 'Record updated';
+            // $sql = "UPDATE martian SET first_name = :fname,
+            //         last_name = :lname, super_id = :sup_id,
+            //         base_id = :bid
+            //         WHERE martian_id = :martian_id";
+            // $stmt = $pdo->prepare($sql);
+            // $stmt->execute(array(
+            //     ':fname' => $_POST['first_name'],
+            //     ':lname' => $_POST['last_name'],
+            //     ':sup_id' => NULL,
+            //     ':bid' => NULL,
+            //     ':mid' => $_POST['martian_id']));
+            $success= $_POST;
           }
         }
         elseif($_POST['base'] === ''){
