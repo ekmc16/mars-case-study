@@ -78,7 +78,7 @@ $(document).on('click','.editmartian',function(){
   })
 });
 $(document).on('click','.deletemartian',function(){
-  $('#editmartian_form')[0].reset();
+  clearSelection($('#editmartian_form')[0])
   $("#deleteModal").modal("show");
   id = $(this).attr('id');
   $("#deleteID").val(id);
