@@ -65,19 +65,20 @@ $(document).on('click','.editmartian',function(){
       //   $("#new_superior option[value='"+ data.super_id +"']").attr("selected", "selected");
       // }
       // else{
-        $('#new_superior').find('option:first').attr('selected', 'selected');
+        // $('#new_superior').find('option:first').attr('selected', 'selected');
       // }
       // if(data.base_id != null){
       //   $("#new_base option[value='"+ data.base_id +"']").attr("selected", "selected");
       // }
       // else{
-        $('#new_base').find('option:first').attr('selected', 'selected');;
+        // $('#new_base').find('option:first').attr('selected', 'selected');
       // }
       $("#updateID").val(data.martian_id);
     }
   })
 });
 $(document).on('click','.deletemartian',function(){
+  $('#editmartian_form')[0].reset();
   $("#deleteModal").modal("show");
   id = $(this).attr('id');
   $("#deleteID").val(id);
