@@ -77,7 +77,7 @@ $("#editmartian_form").submit(function(e){
   var form_data = $(this).serialize();
   console.log(form_data);
   $.ajax({
-    url:"add.php",
+    url:"save.php",
     method:"POST",
     data:form_data,
     dataType:"json",
