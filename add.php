@@ -12,14 +12,14 @@ if(isset($_POST)){
           $error = 'Missing data';
       }
       else{
-        if(is_null($_POST['base']) && is_null($_POST['super_id'])){
-          // $sql = "INSERT INTO martian (first_name, last_name)
-          //       VALUES (:fname, :lname)";
-          // $stmt = $pdo->prepare($sql);
-          // $stmt->execute(array(
-          //     ':fname' => $_POST['first_name'],
-          //     ':lname' => $_POST['last_name']
-          // ));
+        if(is_null($_POST['base']) && is_null($_POST['superior'])){
+          $sql = "INSERT INTO martian (first_name, last_name)
+                VALUES (:fname, :lname)";
+          $stmt = $pdo->prepare($sql);
+          $stmt->execute(array(
+              ':fname' => $_POST['first_name'],
+              ':lname' => $_POST['last_name']
+          ));
         }
         else if(is_null($_POST['base'])){
           $sql = "INSERT INTO martian (first_name, last_name, super_id)
