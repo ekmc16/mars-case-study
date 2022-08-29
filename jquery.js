@@ -52,6 +52,7 @@ $("#add_form").submit(function(e){
 $(document).on('click','.editmartian',function(){
   $("#editModal").modal("show");
   martian_id = $(this).attr('id');
+  console.log(martian_id);
   $.ajax({
     url:"fetchinfo.php",
     method:"get",
