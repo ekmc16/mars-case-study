@@ -61,13 +61,13 @@ $(document).on('click','.editmartian',function(){
       console.log(data.super_id);
       $("#new_firstname").val(data.first_name);
       $("#new_lastname").val(data.last_name);
-      if(data.super_id != ''){
+      if(data.super_id != null){
         $("#new_superior option[value='"+ data.super_id +"']").attr("selected", "selected");
       }
       else{
         $("#new_superior").prop("selected", false);
       }
-      if(data.base_id != ''){
+      if(data.base_id != null){
         $("#new_base option[value='"+ data.base_id +"']").attr("selected", "selected");
       }
       else{
