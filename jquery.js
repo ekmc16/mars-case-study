@@ -50,7 +50,6 @@ $("#add_form").submit(function(e){
   })
 });
 $(document).on('click','.editmartian',function(){
-  $('#editmartian_form')[0].reset();
   $("#editModal").modal("show");
   martian_id = $(this).attr('id');
   $.ajax({
@@ -59,12 +58,12 @@ $(document).on('click','.editmartian',function(){
     data:{martian_id:martian_id},
     dataType:"json",
     success:function(data){
-      console.log(data.super_id);
       $("#new_firstname").val(data.first_name);
       $("#new_lastname").val(data.last_name);
       $("#new_superior option[value='"+ data.super_id +"']").attr("selected", "selected");
       $("#new_base option[value='"+ data.base_id +"']").attr("selected", "selected");
       $("#updateID").val(data.martian_id);
+      $('#editmartian_form')[0].reset();
     }
   })
 });
