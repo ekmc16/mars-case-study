@@ -6,7 +6,7 @@ $success='';
 
 if(isset($_POST)){
   if( ($_POST['first_name']) && isset($_POST['last_name'])
-      && isset($_POST['base_id']) && isset($_POST['superior_id'])) {
+      && isset($_POST['base']) && isset($_POST['superior'])) {
       // Data validation
       if ( strlen($_POST['first_name']) < 1 || strlen($_POST['last_name']) < 1) {
           $error = 'Missing data';
@@ -25,7 +25,7 @@ if(isset($_POST)){
   }
 
   else{
-    $error = 'No/Incomplete DATA';
+    $error = 'ERROR';
   }
 
   $data = array(
