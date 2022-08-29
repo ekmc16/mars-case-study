@@ -4,6 +4,9 @@ session_start();
 
 $stmt = $pdo->query("SELECT base_id,base_name FROM base");
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$stmt1 = $pdo->query("SELECT CONCAT(first_name,' ',last_name) AS name,martian_id FROM martian");
+$result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
 <html lang="en">
@@ -116,24 +119,36 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <form id="add_form" method="post" class="form-control">
           <span id="error"></span>
         <div class="modal-body">
-              <p>First Name:
-              <input class="form-control" type="text" name="first_name"></p>
-              <p>LastName:
-              <input class="form-control" type="text" name="last_name"></p>
-              <p>Base:
-              <select id="base" name="base" class="form-select">
-              <?php
-                if(!empty($result)) { 
-                  foreach($result as $row) {
-                ?>
-                    <option value="<?php echo $row["base_id"]; ?>"><?php echo $row["base_name"]; ?></option>
-              <?php
-                  }
-                }
+          <p>First Name:
+          <input class="form-control" type="text" name="first_name"></p>
+          <p>LastName:
+          <input class="form-control" type="text" name="last_name"></p>
+          <p>Base:
+          <select id="base" name="base" class="form-select">
+            <?php
+              if(!empty($result)) { 
+                foreach($result as $row) {
               ?>
-              </select></p>
-              <p>Password:
-              <input class="form-control" type="password" name="password"></p>
+                  <option value="<?php echo $row["base_id"]; ?>"><?php echo $row["base_name"]; ?></option>
+            <?php
+                }
+              }
+            ?>
+            </select>
+          </p>
+          <p>Base:
+            <select id="superior" name="superior" class="form-select">
+            <?php
+              if(!empty($result1)) { 
+                foreach($result1 as $row) {
+                ?>
+                  <option value="<?php echo $row["martian_id"]; ?>"><?php echo $row["name"]; ?></option>
+                <?php
+                }
+              }
+            ?>
+            </select>
+          </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
