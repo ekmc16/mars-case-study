@@ -10,7 +10,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
               <!-- dapat statistics? -->
-              <a class="nav-link" id="dashboard"href="">Dashboard</a>
+              <a class="nav-link" id="dashboard" href="/">Dashboard</a>
             </li>
           <li class="nav-item">
             <a class="nav-link" id="aliens" href="aliens.php">Aliens</a>
