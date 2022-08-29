@@ -116,23 +116,22 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <form id="add_form" method="post" class="form-control">
           <span id="error"></span>
         <div class="modal-body">
-              <p>Name:
-              <input class="form-control" type="text" name="name"></p>
-              <p>Email:
-              <input class="form-control" type="text" name="email"></p>
+              <p>First Name:
+              <input class="form-control" type="text" name="first_name"></p>
+              <p>LastName:
+              <input class="form-control" type="text" name="last_name"></p>
+              <p>Base:
+              <select id="base" name="base" size="3">
               <?php
                 if(!empty($result)) { 
                   foreach($result as $row) {
                 ?>
-                  <tr class="table-row">
-                    <td><?php echo $row["base_name"]; ?></td>
-                    <td><?php echo $row["base_name"]; ?></td>
-                    <td><?php echo $row["base_name"]; ?></td>                  </tr>
+                    <option value="<?php echo $row["base_id"]; ?>"><?php echo $row["base_name"]; ?></option>
               <?php
                   }
                 }
               ?>
-
+              </select></p>
               <p>Password:
               <input class="form-control" type="password" name="password"></p>
         </div>
