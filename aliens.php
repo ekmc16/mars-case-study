@@ -79,6 +79,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="container mb-5">
         <div class="row">
             <p class="text-center h2">DICTMARS</p>
+            <a href="#" id="openadd"type="button" class="btn btn-primary">Add New</a>
             <span id="form_output"></span>
         </div>
         <table id="testing123" class="display" style="width:100%">
