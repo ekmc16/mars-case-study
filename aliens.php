@@ -124,7 +124,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
           <p>LastName:
           <input class="form-control" type="text" name="last_name"></p>
           <p>Base:
-          <select id="base" name="base" class="form-select">
+          <select name="base" class="form-select">
             <?php
               if(!empty($result)) { 
                 foreach($result as $row) {
@@ -136,8 +136,8 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
             ?>
             </select>
           </p>
-          <p>Base:
-            <select id="superior" name="superior" class="form-select">
+          <p>Superior:
+            <select name="superior" class="form-select">
             <?php
               if(!empty($result1)) { 
                 foreach($result1 as $row) {
@@ -169,13 +169,36 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
         <form id="edit_form" method="post" class="form-control">
           <span id="error1"></span>
         <div class="modal-body">
-              <p>Name:
-              <input class="form-control" type="text" name="name" id="new_name"></p>
-              <p>Email:
-              <input class="form-control" type="text" name="email" id="new_email"></p>
-              <p>Password:
-              <input class="form-control" type="text" name="password" id="new_password"></p>
-              <input class="form-control" type="text" name="user_id" id="updateID" hidden></p>
+        <p>First Name:
+          <input class="form-control" type="text" name="first_name" id="new_firstname"></p>
+          <p>LastName:
+          <input class="form-control" type="text" name="last_name" id="new_lastname"></p>
+          <p>Base:
+          <select class="form-select" name="base" id="new_base">
+            <?php
+              if(!empty($result)) { 
+                foreach($result as $row) {
+              ?>
+                  <option value="<?php echo $row["base_id"]; ?>"><?php echo $row["base_name"]; ?></option>
+            <?php
+                }
+              }
+            ?>
+            </select>
+          </p>
+          <p>Superior:
+            <select class="form-select" name="superior" id="new_superior">
+            <?php
+              if(!empty($result1)) { 
+                foreach($result1 as $row) {
+                ?>
+                  <option value="<?php echo $row["martian_id"]; ?>"><?php echo $row["name"]; ?></option>
+                <?php
+                }
+              }
+            ?>
+            </select>
+          </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
