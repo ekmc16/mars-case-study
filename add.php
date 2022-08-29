@@ -11,16 +11,17 @@ if(isset($_POST)){
       if ( strlen($_POST['first_name']) < 1 || strlen($_POST['last_name']) < 1) {
           $error = 'Missing data';
       }
-      else{$sql = "INSERT INTO martian (first_name, last_name, base_id, super_id)
+      else{
+        $sql = "INSERT INTO martian (first_name, last_name, base_id, super_id)
                 VALUES (:fname, :lname, :baseid, :superid)";
-      $stmt = $pdo->prepare($sql);
-      $stmt->execute(array(
-          ':fname' => $_POST['first_name'],
-          ':lname' => $_POST['last_name'],
-          ':baseid' => $_POST['base'],
-          ':superid' => $_POST['superior']
-        ));
-      $success = 'Record Added';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array(
+            ':fname' => $_POST['first_name'],
+            ':lname' => $_POST['last_name'],
+            ':baseid' => $_POST['base'],
+            ':superid' => $_POST['superior']
+          ));
+        $success=$stmt;
       }
   }
 
