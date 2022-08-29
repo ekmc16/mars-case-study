@@ -121,7 +121,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <p>LastName:
               <input class="form-control" type="text" name="last_name"></p>
               <p>Base:
-              <select id="base" name="base">
+              <select id="base" name="base" class="form-control">
               <?php
                 if(!empty($result)) { 
                   foreach($result as $row) {
