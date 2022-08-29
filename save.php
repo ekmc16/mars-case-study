@@ -35,7 +35,7 @@ if(isset($_POST)){
                 ':sup_id' => NULL,
                 ':bid' => NULL,
                 ':mid' => $_POST['martian_id']));
-            $success= 'Record updated';
+            $success= $_POST;
           }
         }
         elseif($_POST['base'] === ''){
