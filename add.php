@@ -13,7 +13,6 @@ if(isset($_POST)){
       }
       else{
         if($_POST['base'] === '' && $_POST['superior'] ===''){
-          $error = 'Missing data';
           $sql = "INSERT INTO martian (first_name, last_name)
                 VALUES (:fname, :lname)";
           $stmt = $pdo->prepare($sql);
@@ -22,26 +21,26 @@ if(isset($_POST)){
               ':lname' => $_POST['last_name']
           ));
         }
-        // elseif(is_null($_POST['base'])){
-        //   $sql = "INSERT INTO martian (first_name, last_name, super_id)
-        //           VALUES (:fname, :lname, :superid)";
-        //   $stmt = $pdo->prepare($sql);
-        //   $stmt->execute(array(
-        //       ':fname' => $_POST['first_name'],
-        //       ':lname' => $_POST['last_name'],
-        //       ':superid' => $_POST['superior']
-        //   ));
-        // }
-        // elseif(is_null($_POST['superior'])){
-        //   $sql = "INSERT INTO martian (first_name, last_name, base_id)
-        //           VALUES (:fname, :lname, :baseid)";
-        //   $stmt = $pdo->prepare($sql);
-        //   $stmt->execute(array(
-        //       ':fname' => $_POST['first_name'],
-        //       ':lname' => $_POST['last_name'],
-        //       ':baseid' => $_POST['base']
-        //   ));
-        // }
+        elseif($_POST['base'] === ''){
+          $sql = "INSERT INTO martian (first_name, last_name, super_id)
+                  VALUES (:fname, :lname, :superid)";
+          $stmt = $pdo->prepare($sql);
+          $stmt->execute(array(
+              ':fname' => $_POST['first_name'],
+              ':lname' => $_POST['last_name'],
+              ':superid' => $_POST['superior']
+          ));
+        }
+        elseif(($_POST['superior']) === ''){
+          $sql = "INSERT INTO martian (first_name, last_name, base_id)
+                  VALUES (:fname, :lname, :baseid)";
+          $stmt = $pdo->prepare($sql);
+          $stmt->execute(array(
+              ':fname' => $_POST['first_name'],
+              ':lname' => $_POST['last_name'],
+              ':baseid' => $_POST['base']
+          ));
+        }
         else{
           $sql = "INSERT INTO martian (first_name, last_name, base_id, super_id)
                   VALUES (:fname, :lname, :baseid, :superid)";
