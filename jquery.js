@@ -1,6 +1,5 @@
 $(document).ready(function(){
-  fetch_aliens();
-  function fetch_aliens(){
+  function fetch_martians(){
     $("#testing123").DataTable({
       destroy: true,
       ajax: {
@@ -15,7 +14,7 @@ $(document).ready(function(){
           sortable: false,
           "render": function ( data, type, full, meta ) {
               var buttonID = full.martian_id;
-              return '<a href="#" id='+buttonID+' class="edit btn btn-xs btn-secondary">Edit</a><a href="#" id='+buttonID+' class="delete btn btn-xs btn-danger">Delete</a>';
+              return '<a href="#" id='+buttonID+' class="editmartian btn btn-xs btn-secondary">Edit</a><a href="#" id='+buttonID+' class="deletemartian btn btn-xs btn-danger">Delete</a>';
           }
         }
       ],
@@ -43,7 +42,7 @@ $("#add_form").submit(function(e){
               $('#add_form')[0].reset();
               $('#exampleModal').modal('hide');
               success_html = '<div class="alert alert-success">'+data.success+'</div>';
-              fetch_aliens();
+              fetch_martians();
               $('#form_output').html(success_html);
               $('#form_output').hide().slideDown().delay(5000).fadeOut(2000);
           }
@@ -51,28 +50,30 @@ $("#add_form").submit(function(e){
       }
   })
 });
-$(document).on('click','.edit',function(){
+$(document).on('click','.editmartian',function(){
   $("#editModal").modal("show");
-  id = $(this).attr('id');
+  martian_id = $(this).attr('id');
   $.ajax({
     url:"fetchinfo.php",
     method:"get",
-    data:{id:id},
+    data:{martian_id:martian_id},
     dataType:"json",
     success:function(data){
-      $("#new_name").val(data.name);
-      $("#new_email").val(data.email);
-      $("#new_password").val(data.password);
-      $("#updateID").val(data.user_id);
+      $("#new_firstname").val(data.first_name);
+      $("#new_lastname").val(data.last_name);
+      $("#new_superior option[value='"+ data.super_id +"']").attr("selected", "selected");
+      $("#new_base option[value='"+ data.base_id +"']").attr("selected", "selected");
+
+      $("#updateID").val(data.martian_id);
     }
   })
 });
-$(document).on('click','.delete',function(){
+$(document).on('click','.deletemartian',function(){
   $("#deleteModal").modal("show");
   id = $(this).attr('id');
   $("#deleteID").val(id);
 });
-$("#edit_form").submit(function(e){
+$("#editmartian_form").submit(function(e){
   e.preventDefault();
   var form_data = $(this).serialize();
   $.ajax({
@@ -87,9 +88,9 @@ $("#edit_form").submit(function(e){
           $('#error1').hide().slideDown().delay(5000).fadeOut(2000);
       }
       else{
-          $('#edit_form')[0].reset();
+          $('#editmartian_form')[0].reset();
           $('#editModal').modal('hide');
-          fetch_aliens();
+          fetch_martians();
           success_html = '<div class="alert alert-success">'+data.success+'</div>';
           $('#form_output').html(success_html);
           $('#form_output').hide().slideDown().delay(5000).fadeOut(2000);
@@ -97,7 +98,7 @@ $("#edit_form").submit(function(e){
     }
   })
 });
-$("#delete_form").submit(function(e){
+$("#deletemartian_form").submit(function(e){
   e.preventDefault();
   var form_data = $(this).serialize();
   $.ajax({
@@ -107,7 +108,7 @@ $("#delete_form").submit(function(e){
     dataType:"json",
     success:function(data){
 
-      fetch_aliens();
+      fetch_martians();
       $('#deleteModal').modal('hide');
       success_html = '<div class="alert alert-success">'+data+'</div>';
       $('#form_output').html(success_html);

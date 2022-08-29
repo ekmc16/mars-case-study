@@ -168,7 +168,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
           <h5 class="modal-title" id="exampleModalLabel">Edit Info</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form id="edit_form" method="post" class="form-control">
+        <form id="editmartian_form" method="post" class="form-control">
           <span id="error1"></span>
         <div class="modal-body">
         <p>First Name:
@@ -214,7 +214,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
   <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <form id="delete_form" method="post" class="form-control">
+        <form id="deletemartian_form" method="post" class="form-control">
         <div class="modal-body">
               <h1> Are you sure you want to delete this record?
               <input class="form-control" type="text" name="martian_id" id="deleteID" value="" hidden></p>
@@ -236,6 +236,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+  fetch_martians()
   $("#aliens").addClass('active');
   $("#aliens").attr('aria-current','page');
   console.log($("#aliens").attr('aria-current'));
