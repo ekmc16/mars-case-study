@@ -50,7 +50,8 @@ $("#add_form").submit(function(e){
   })
 });
 $(document).on('click','.editmartian',function(){
-  clearSelection($('#editmartian_form')[0])
+  $('#new_base option:first').prop('selected',true);
+  $('#new_superior option:first').prop('selected',true);
   $("#editModal").modal("show");
   martian_id = $(this).attr('id');
   $.ajax({
