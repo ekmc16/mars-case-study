@@ -50,6 +50,7 @@ $("#add_form").submit(function(e){
   })
 });
 $(document).on('click','.editmartian',function(){
+  clearSelection($('#editmartian_form')[0])
   $("#editModal").modal("show");
   martian_id = $(this).attr('id');
   $.ajax({
@@ -78,7 +79,6 @@ $(document).on('click','.editmartian',function(){
   })
 });
 $(document).on('click','.deletemartian',function(){
-  clearSelection($('#editmartian_form')[0])
   $("#deleteModal").modal("show");
   id = $(this).attr('id');
   $("#deleteID").val(id);
