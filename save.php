@@ -23,7 +23,7 @@ if(isset($_POST)){
             ));
             $success = 'Record Added';
           }
-          elseif ($_POST['function'] == 'update'){
+          elseif($_POST['function'] == 'update'){
             // $sql = "UPDATE martian SET first_name = :fname,
             //         last_name = :lname, super_id = :sid,
             //         base_id = :bid
