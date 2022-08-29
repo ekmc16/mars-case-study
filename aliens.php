@@ -125,6 +125,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
           <input class="form-control" type="text" name="last_name"></p>
           <p>Base:
           <select name="base" class="form-select">
+            <option value="">N/A</option>
             <?php
               if(!empty($result)) { 
                 foreach($result as $row) {
@@ -138,6 +139,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
           </p>
           <p>Superior:
             <select name="superior" class="form-select">
+              <option value="">N/A</option>
             <?php
               if(!empty($result1)) { 
                 foreach($result1 as $row) {
@@ -170,9 +172,9 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
           <span id="error1"></span>
         <div class="modal-body">
         <p>First Name:
-          <input class="form-control" type="text" name="first_name" id="new_firstname"></p>
+          <input class="form-control" type="text" name="new_first_name" id="new_firstname"></p>
           <p>LastName:
-          <input class="form-control" type="text" name="last_name" id="new_lastname"></p>
+          <input class="form-control" type="text" name="new_last_name" id="new_lastname"></p>
           <p>Base:
           <select class="form-select" name="base" id="new_base">
             <?php
