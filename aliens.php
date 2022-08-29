@@ -217,7 +217,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
         <form id="delete_form" method="post" class="form-control">
         <div class="modal-body">
               <h1> Are you sure you want to delete this record?
-              <input class="form-control" type="text" name="user_id" id="deleteID" value="" hidden></p>
+              <input class="form-control" type="text" name="martian_id" id="deleteID" value="" hidden></p>
         </div>
         <div class="modal-footer border-0">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
