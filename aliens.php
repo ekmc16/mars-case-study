@@ -3,8 +3,7 @@ require_once "pdo.php";
 session_start();
 
 $stmt = $pdo->query("SELECT base_id,base_name FROM base");
-$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-print_r($data);
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
 <html lang="en">
@@ -120,6 +119,19 @@ print_r($data);
               <input class="form-control" type="text" name="name"></p>
               <p>Email:
               <input class="form-control" type="text" name="email"></p>
+              <?php
+                if(!empty($result)) { 
+                  foreach($result as $row) {
+                ?>
+                  <tr class="table-row">
+                    <td><?php echo $row["base_name"]; ?></td>
+                    <td><?php echo $row["base_name"]; ?></td>
+                    <td><?php echo $row["base_name"]; ?></td>                  </tr>
+              <?php
+                  }
+                }
+              ?>
+
               <p>Password:
               <input class="form-control" type="password" name="password"></p>
         </div>
