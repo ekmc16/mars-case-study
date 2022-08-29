@@ -21,7 +21,7 @@ require_once "pdo.php";
             ':baseid' => '',
             ':superid' => ''
           ));
-        print_r($a);
+        echo $a;
         // $success = 'Record Added';
 //       }
 //   }
