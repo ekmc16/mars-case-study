@@ -178,6 +178,13 @@ session_start();
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#aliens").addClass('active');
+  $("#aliens").attr('aria-current','page');
+  console.log($("#aliens").attr('aria-current'));
+});
+</script>
 <script type="text/javascript" src="jquery.js"></script> 
 </body>
 </html>
