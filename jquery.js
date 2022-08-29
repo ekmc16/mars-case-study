@@ -75,6 +75,7 @@ $(document).on('click','.deletemartian',function(){
 $("#editmartian_form").submit(function(e){
   e.preventDefault();
   var form_data = $(this).serialize();
+  console.log(form_data);
   $.ajax({
     url:"add.php",
     method:"POST",
