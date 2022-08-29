@@ -125,7 +125,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
           <input class="form-control" type="text" name="last_name"></p>
           <p>Superior:
             <select name="superior" class="form-select">
-              <option value>N/A</option>
+              <option value="">N/A</option>
             <?php
               if(!empty($result1)) { 
                 foreach($result1 as $row) {
@@ -139,7 +139,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
           </p>
           <p>Base:
           <select name="base" class="form-select">
-            <option value>N/A</option>
+            <option value="">N/A</option>
             <?php
               if(!empty($result)) { 
                 foreach($result as $row) {
@@ -177,7 +177,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
           <input class="form-control" type="text" name="last_name" id="new_lastname"></p>
           <p>Superior:
             <select class="form-select" name="superior" id="new_superior">
-              <option value>N/A</option>
+              <option value="">N/A</option>
             <?php
               if(!empty($result1)) { 
                 foreach($result1 as $row) {
@@ -191,7 +191,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
           </p>
           <p>Base:
             <select class="form-select" name="base" id="new_base">
-            <option value>N/A</option>
+            <option value="">N/A</option>
             <?php
               if(!empty($result)) { 
                 foreach($result as $row) {
