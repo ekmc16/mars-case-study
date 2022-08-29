@@ -9,7 +9,7 @@ if(isset($_POST)){
       && isset($_POST['base']) && isset($_POST['superior'])) {
       // Data validation
       if ( strlen($_POST['first_name']) < 1 || strlen($_POST['last_name']) < 1) {
-          $error = 'Missing data';
+          $error = $_POST['base']+$_POST['superior']+;
       }
       else{
         $sql = "INSERT INTO martian (first_name, last_name, base_id, super_id)
@@ -21,7 +21,7 @@ if(isset($_POST)){
             ':baseid' => $_POST['base'],
             ':superid' => $_POST['superior']
           ));
-        $success=$stmt;
+        // $success = 'Record Added';
       }
   }
 
