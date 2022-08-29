@@ -7,7 +7,7 @@ if (isset($_GET)){
   $stmt->execute(array(":id" => $_GET['martian_id']));
   $data = $stmt->fetch(PDO::FETCH_ASSOC);
  }
-  echo json_encode($_GET['martian_id']);
+  echo json_encode($data);
 }
     
 ?>
