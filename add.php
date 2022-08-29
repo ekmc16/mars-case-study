@@ -11,7 +11,7 @@ if(isset($_POST)){
       if ( strlen($_POST['first_name']) < 1 || strlen($_POST['last_name']) < 1) {
           $error = 'Missing data';
       }
-      else{$sql = "INSERT INTO users (first_name, last_name, base_id, super_id)
+      else{$sql = "INSERT INTO martian (first_name, last_name, base_id, super_id)
                 VALUES (:fname, :lname, :baseid, :superid)";
       $stmt = $pdo->prepare($sql);
       $stmt->execute(array(
