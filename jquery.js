@@ -58,12 +58,22 @@ $(document).on('click','.editmartian',function(){
     data:{martian_id:martian_id},
     dataType:"json",
     success:function(data){
+      console.log(data.super_id);
       $("#new_firstname").val(data.first_name);
       $("#new_lastname").val(data.last_name);
-      $("#new_superior option[value='"+ data.super_id +"']").attr("selected", "selected");
-      $("#new_base option[value='"+ data.base_id +"']").attr("selected", "selected");
+      if(data.super_id != null){
+        $("#new_superior option[value='"+ data.super_id +"']").attr("selected", "selected");
+      }
+      else{
+        $('#new_superior').find('option:first').attr('selected', 'selected');
+      }
+      if(data.base_id != null){
+        $("#new_base option[value='"+ data.base_id +"']").attr("selected", "selected");
+      }
+      else{
+        $('#new_base').find('option:first').attr('selected', 'selected');;
+      }
       $("#updateID").val(data.martian_id);
-      $('#editmartian_form')[0].reset();
     }
   })
 });
