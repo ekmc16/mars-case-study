@@ -2,7 +2,7 @@ function fetch_martians(){
   $("#testing123").DataTable({
     destroy: true,
     ajax: {
-      url: 'fetch.php',
+      url: 'fetchm.php',
       dataSrc: '',
   },
     columns: [

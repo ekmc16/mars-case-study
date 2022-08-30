@@ -13,7 +13,7 @@
               <a class="nav-link" id="dashboard" href="/">Dashboard</a>
             </li>
           <li class="nav-item">
-            <a class="nav-link" id="aliens" href="aliens.php">Aliens</a>
+            <a class="nav-link" id="aliens" href="martians.php">Aliens</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="bases" href="#">Bases</a>
