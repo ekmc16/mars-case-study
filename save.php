@@ -135,7 +135,6 @@ if(isset($_POST)){
           $stmt->execute(array(
               ':bname' => $_POST['base_name']
           ));
-          $success = 'Record Added';
         }
         else{
           $sql = "INSERT INTO base (base_name, founded)
@@ -144,9 +143,9 @@ if(isset($_POST)){
           $stmt->execute(array(
               ':bname' => $_POST['base_name'],
               ':founded' => $_POST['date_founded']
-          ));
-          $success = 'Record Added';
+          ));     
         }
+        $success = 'Record Added';
       }
       else{
         if($_POST['date_founded'] ===''){
@@ -159,7 +158,6 @@ if(isset($_POST)){
               ':founded' => NULL,
               ':bid' => $_POST['base_id']
           ));
-          $success = 'Record Updated';
         }
         else{
           $sql = "UPDATE base SET base_name = :bname,
@@ -171,9 +169,66 @@ if(isset($_POST)){
               ':founded' => $_POST['date_founded'],
               ':bid' => $_POST['base_id']
           ));
-          $success = 'Record Updated';
+          
         }
+        $success = 'Record Updated';
       }
+    }
+  }
+  elseif(isset($_POST['v_fname']) && isset($_POST['v_lname']) && isset($_POST['host'])){
+    if ( strlen($_POST['v_fname']) < 1 || strlen($_POST['v_lname']) < 1) {
+      $error = 'Missing data';
+    }
+    else{
+      if($_POST['function'] == 'add'){
+        if($_POST['host'] === ''){
+          $sql = "INSERT INTO visitor (first_name, last_name)
+                  VALUES (:fname, :lname)";
+          $stmt = $pdo->prepare($sql);
+          $stmt->execute(array(
+              ':fname' => $_POST['v_fname'],
+              ':lname' => $_POST['v_lname'],
+          ));
+        }
+        else{
+          $sql = "INSERT INTO visitor (first_name, last_name, host_id)
+                  VALUES (:fname, :lname, :hid)";
+          $stmt = $pdo->prepare($sql);
+          $stmt->execute(array(
+              ':fname' => $_POST['v_fname'],
+              ':lname' => $_POST['v_lname'],
+              ':hid' => $_POST['host']
+          ));
+        }
+        $success = 'Record Added';
+      }
+      else{
+        if($_POST['host'] === ''){
+          $sql = "UPDATE visitor SET first_name = :fname,
+                  last_name = :lname, host_id = :hid
+                  WHERE visitor_id = :vid";
+          $stmt = $pdo->prepare($sql);
+          $stmt->execute(array(
+              ':fname' => $_POST['v_fname'],
+              ':lname' => $_POST['v_lname'],
+              ':hid' => NULL,
+              ':vid' => $_POST['visitor_id']
+          ));
+        }
+        else{
+          $sql = "UPDATE visitor SET first_name = :fname,
+                  last_name = :lname, host_id = :hid
+                  WHERE visitor_id = :vid";
+          $stmt = $pdo->prepare($sql);
+          $stmt->execute(array(
+              ':fname' => $_POST['v_fname'],
+              ':lname' => $_POST['v_lname'],
+              ':hid' => $_POST['host'],
+              ':vid' => $_POST['visitor_id']
+          ));
+        }
+        $success = 'Record Updated';
+      }  
     }
   }
   else{

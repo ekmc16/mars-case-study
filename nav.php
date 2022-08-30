@@ -19,7 +19,7 @@
             <a class="nav-link" id="bases" href="bases.php">Bases</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="visitors" href="#">Visitors</a>
+            <a class="nav-link" id="visitors" href="visitors.php">Visitors</a>
           </li>
 
         </ul>
