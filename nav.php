@@ -16,7 +16,7 @@
             <a class="nav-link" id="aliens" href="martians.php">Aliens</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="bases" href="#">Bases</a>
+            <a class="nav-link" id="bases" href="bases.php">Bases</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="visitors" href="#">Visitors</a>

@@ -8,6 +8,12 @@ if(isset($_POST['martian_id'])) {
     $stmt->execute(array(':deleteID' => $_POST['martian_id']));
     $stats = 'Record deleted'; 
 }
+elseif(isset($_POST['base_id'])) {
+    $sql = "DELETE FROM base WHERE base_id = :deleteID";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array(':deleteID' => $_POST['base_id']));
+    $stats = 'Record deleted'; 
+}
 
 echo json_encode($stats);
 

@@ -5,7 +5,7 @@ $error='';
 $success='';
 
 if(isset($_POST)){
-  if( ($_POST['first_name']) && isset($_POST['last_name'])
+  if( isset($_POST['first_name']) && isset($_POST['last_name'])
       && isset($_POST['base']) && isset($_POST['superior'])) {
       // Data validation
       if ( strlen($_POST['first_name']) < 1 || strlen($_POST['last_name']) < 1) {
@@ -122,7 +122,60 @@ if(isset($_POST)){
         }
       }
   }
-
+  elseif(isset($_POST['base_name']) && isset($_POST['date_founded'])){
+    if ( strlen($_POST['base_name']) < 1){
+      $error = 'Base name is required';
+    }
+    else{
+      if($_POST['function'] == 'add'){
+        if($_POST['date_founded'] ===''){
+          $sql = "INSERT INTO base (base_name)
+                  VALUES (:bname)";
+          $stmt = $pdo->prepare($sql);
+          $stmt->execute(array(
+              ':bname' => $_POST['base_name']
+          ));
+          $success = 'Record Added';
+        }
+        else{
+          $sql = "INSERT INTO base (base_name, founded)
+                  VALUES (:bname, :founded)";
+          $stmt = $pdo->prepare($sql);
+          $stmt->execute(array(
+              ':bname' => $_POST['base_name'],
+              ':founded' => $_POST['date_founded']
+          ));
+          $success = 'Record Added';
+        }
+      }
+      else{
+        if($_POST['date_founded'] ===''){
+          $sql = "UPDATE base SET base_name = :bname,
+                  founded = :founded
+                  WHERE base_id = :bid";
+          $stmt = $pdo->prepare($sql);
+          $stmt->execute(array(
+              ':bname' => $_POST['base_name'],
+              ':founded' => NULL,
+              ':bid' => $_POST['base_id']
+          ));
+          $success = 'Record Updated';
+        }
+        else{
+          $sql = "UPDATE base SET base_name = :bname,
+                  founded = :founded
+                  WHERE base_id = :bid";
+          $stmt = $pdo->prepare($sql);
+          $stmt->execute(array(
+              ':bname' => $_POST['base_name'],
+              ':founded' => $_POST['date_founded'],
+              ':bid' => $_POST['base_id']
+          ));
+          $success = 'Record Updated';
+        }
+      }
+    }
+  }
   else{
     $error = 'ERROR';
   }
