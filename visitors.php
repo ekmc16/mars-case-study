@@ -86,8 +86,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <table id="visitorsTable" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>Visitor name</th>
-                <th>Host name</th>
+                <th>Visitor</th>
+                <th>Host</th>
                 <th>Base</th>
                 <th></th>
             </tr>
@@ -96,8 +96,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
           </tbody>
           <tfoot>
             <tr>
-                <th>Alien name</th>
-                <th>Superior name</th>
+                <th>Alien</th>
+                <th>Superior</th>
                 <th>Base</th>
             </tr>
         </tfoot>

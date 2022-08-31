@@ -84,7 +84,7 @@ session_start();
         <thead>
             <tr>
                 <th>Base ID</th>
-                <th>Superior name</th>
+                <th>Base name</th>
                 <th>Date Founded</th>
                 <th></th>
             </tr>
@@ -94,7 +94,7 @@ session_start();
           <tfoot>
             <tr>
                 <th>Base ID</th>
-                <th>Superior name</th>
+                <th>Base name</th>
                 <th>Date Founded</th>
             </tr>
         </tfoot>

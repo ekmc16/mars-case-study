@@ -127,8 +127,8 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
         <table id="martiansTable" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>Alien name</th>
-                <th>Superior name</th>
+                <th>Name</th>
+                <th>Superior</th>
                 <th>Base</th>
                 <th></th>
             </tr>
@@ -137,8 +137,8 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
           </tbody>
           <tfoot>
             <tr>
-                <th>Alien name</th>
-                <th>Superior name</th>
+                <th>Name</th>
+                <th>Superior </th>
                 <th>Base</th>
             </tr>
         </tfoot>
