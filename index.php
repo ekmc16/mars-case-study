@@ -281,8 +281,8 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 $(document).ready(function(){
   fetch_martians();
   fetch_dash();
-  $("#aliens").addClass('active');
-  $("#aliens").attr('aria-current','page');
+  $("#martians").addClass('active');
+  $("#martians").attr('aria-current','page');
 });
 </script>
 </body>
