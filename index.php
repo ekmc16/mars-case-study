@@ -2,6 +2,11 @@
 require_once "pdo.php";
 session_start();
 
+$stmt = $pdo->query("SELECT base_id,base_name FROM base");
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$stmt1 = $pdo->query("SELECT CONCAT(first_name,' ',last_name) AS name,martian_id FROM martian");
+$result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
 <html lang="en">
@@ -65,7 +70,43 @@ session_start();
       }
       main > .container {
         padding: 60px 15px 0;
-        }
+      }
+      .thumbnail {
+        position: relative;
+      }
+
+      .base {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        color: white;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+      }
+      .baseleader {
+        position: absolute;
+        top: 35%;
+        left: 0;
+        width: 100%;
+        color: white;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+      }
+      .basecount {
+        position: absolute;
+        bottom: 5%;
+        left: 0;
+        width: 100%;
+         color: white;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+      }
+      img{
+        width:75%;
+        height:75%;
+      }
+
     </style>
 
 </head>
@@ -74,12 +115,16 @@ session_start();
         require_once("nav.php")
     ?>
   <main class="flex-shrink-0 mb-5">
+    <div class="container">
     <div class="container mb-5">
-        <div class="row">
+        <div class="row mb-5">
             <p class="text-center h2">DICTMARS</p>
+            <div class="text-start pt-5"><a href="#" id="openadd"type="button" class="btn btn-primary">Add New</a></div>
             <span id="form_output"></span>
         </div>
-        <table id="testing123" class="display" style="width:100%">
+        <div class="row" id="basesIcons">
+        </div>
+        <table id="martiansTable" class="display" style="width:100%">
         <thead>
             <tr>
                 <th>Alien name</th>
@@ -110,15 +155,41 @@ session_start();
           <h5 class="modal-title" id="exampleModalLabel">Add A New User</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form id="add_form" method="post" class="form-control">
+        <form id="add_form" method="post" class="form-control" autocomplete="off">
           <span id="error"></span>
         <div class="modal-body">
-              <p>Name:
-              <input class="form-control" type="text" name="name"></p>
-              <p>Email:
-              <input class="form-control" type="text" name="email"></p>
-              <p>Password:
-              <input class="form-control" type="password" name="password"></p>
+          <p>First Name:
+          <input class="form-control" type="text" name="first_name"></p>
+          <p>LastName:
+          <input class="form-control" type="text" name="last_name"></p>
+          <p>Superior:
+            <select name="superior" class="form-select">
+              <option value="">N/A</option>
+            <?php
+              if(!empty($result1)) { 
+                foreach($result1 as $row) {
+                ?>
+                  <option value="<?php echo $row["martian_id"]; ?>"><?php echo $row["name"]; ?></option>
+                <?php
+                }
+              }
+            ?>
+            </select>
+          </p>
+          <p>Base:
+          <select name="base" class="form-select">
+            <option value="">N/A</option>
+            <?php
+              if(!empty($result)) { 
+                foreach($result as $row) {
+              ?>
+                  <option value="<?php echo $row["base_id"]; ?>"><?php echo $row["base_name"]; ?></option>
+            <?php
+                }
+              }
+            ?>
+            </select>
+          </p><input class="form-control" type="text" name="function" value="add" hidden>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -136,16 +207,42 @@ session_start();
           <h5 class="modal-title" id="exampleModalLabel">Edit Info</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form id="edit_form" method="post" class="form-control">
+        <form id="editmartian_form" method="post" class="form-control" autocomplete="off">
           <span id="error1"></span>
         <div class="modal-body">
-              <p>Name:
-              <input class="form-control" type="text" name="name" id="new_name"></p>
-              <p>Email:
-              <input class="form-control" type="text" name="email" id="new_email"></p>
-              <p>Password:
-              <input class="form-control" type="text" name="password" id="new_password"></p>
-              <input class="form-control" type="text" name="user_id" id="updateID" hidden></p>
+        <p>First Name:
+          <input class="form-control" type="text" name="first_name" id="new_firstname"></p>
+          <p>LastName:
+          <input class="form-control" type="text" name="last_name" id="new_lastname"></p>
+          <p>Superior:
+            <select class="form-select" name="superior" id="new_superior">
+              <option value>N/A</option>
+            <?php
+              if(!empty($result1)) { 
+                foreach($result1 as $row) {
+                ?>
+                  <option value="<?php echo $row["martian_id"]; ?>"><?php echo $row["name"]; ?></option>
+                <?php
+                }
+              }
+            ?>
+            </select>
+          </p>
+          <p>Base:
+            <select class="form-select" name="base" id="new_base">
+            <option value>N/A</option>
+            <?php
+              if(!empty($result)) { 
+                foreach($result as $row) {
+              ?>
+                  <option value="<?php echo $row["base_id"]; ?>"><?php echo $row["base_name"]; ?></option>
+            <?php
+                }
+              }
+            ?>
+            </select>
+          </p><input class="form-control" type="text" name="function" value="update" hidden>
+          <input class="form-control" type="text" name="martian_id" id="updateID" value="" hidden>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -162,7 +259,7 @@ session_start();
         <form id="deletemartian_form" method="post" class="form-control">
         <div class="modal-body">
               <h1> Are you sure you want to delete this record?
-              <input class="form-control" type="text" name="user_id" id="deleteID" hidden></p>
+              <input class="form-control" type="text" name="martian_id" id="deleteID" value="" hidden></p>
         </div>
         <div class="modal-footer border-0">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -179,15 +276,15 @@ session_start();
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="jquery.js"></script> 
 <script type="text/javascript">
 $(document).ready(function(){
   fetch_martians();
+  fetch_dash();
   $("#aliens").addClass('active');
   $("#aliens").attr('aria-current','page');
-  console.log($("#aliens").attr('aria-current'));
 });
 </script>
-<script type="text/javascript" src="jquery.js"></script> 
 </body>
 </html>
 

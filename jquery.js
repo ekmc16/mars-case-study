@@ -19,6 +19,28 @@ function fetch_martians(){
     ],
   });
 }
+function fetch_dash(){
+  $.ajax({
+    url:"fetch_dashboard.php",
+    method:"get",
+    dataType:"json",
+    success:function(data){
+        console.log(data);
+        add='';
+          for(var i=0; i < data.length; i++){  
+          add+='<div class="col mb-3">';
+          add+='<div class="thumbnail text-center">';
+          add+='<img src="jedi.jpg" alt="" class="img-responsive">';
+          add+='<h4 class="base">'+data[i].base_name+'</h4>';
+          add+='<h3 class="baseleader">'+data[i].name+'</h3>';
+          add+='<h3 class="basecount">'+data[i].members+'</h3>';
+          add+='</div>';
+          add+='</div>';
+            }
+          $("#basesIcons").html(add);
+    }
+  })
+}
 function fetch_bases(){
   $("#basesTable").DataTable({
     destroy: true,
