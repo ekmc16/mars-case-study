@@ -32,7 +32,12 @@ function fetch_dash(){
           add+='<div class="thumbnail text-center">';
           add+='<img src="jedi.jpg" alt="" class="img-responsive">';
           add+='<h4 class="base">'+data[i].base_name+'</h4>';
-          add+='<h3 class="baseleader">'+data[i].name+'</h3>';
+          if(+data[i].name+==null){
+            add+='<h3 class="baseleader"></h3>';
+          }
+          else{
+            add+='<h3 class="baseleader">'+data[i].name+'</h3>';
+          }
           add+='<h3 class="basecount">'+data[i].members+'</h3>';
           add+='</div>';
           add+='</div>';
