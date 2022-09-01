@@ -56,7 +56,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add A New User</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Add A New Visitor</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form id="addvisitor_form" method="post" class="form-control" autocomplete="off">
