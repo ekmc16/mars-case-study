@@ -69,7 +69,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
         <div class="modal-body">
           <p>First Name:
           <input class="form-control" type="text" name="first_name"></p>
-          <p>LastName:
+          <p>Last Name:
           <input class="form-control" type="text" name="last_name"></p>
           <p>Superior:
             <select name="superior" class="form-select">
@@ -121,7 +121,7 @@ $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
         <div class="modal-body">
         <p>First Name:
           <input class="form-control" type="text" name="first_name" id="new_firstname"></p>
-          <p>LastName:
+          <p>Last Name:
           <input class="form-control" type="text" name="last_name" id="new_lastname"></p>
           <p>Superior:
             <select class="form-select" name="superior" id="new_superior">
