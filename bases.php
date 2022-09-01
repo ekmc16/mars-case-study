@@ -22,7 +22,7 @@ session_start();
     <div class="container mb-5">
         <div class="row">
             <p class="text-center h2">DICTMARS</p>
-            <div class="text-start pt-5"><a href="#" id="openadd"type="button" class="btn btn-primary">Add New</a></div>
+            <div class="text-start pt-5 mb-3"><a href="#" id="openadd"type="button" class="btn btn-primary">Add New</a></div>
             <span id="form_output"></span>
         </div>
         <table id="basesTable" class="display" style="width:100%">
