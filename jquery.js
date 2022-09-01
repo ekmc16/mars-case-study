@@ -13,7 +13,7 @@ function fetch_martians(){
         sortable: false,
         "render": function ( data, type, full, meta ) {
             var buttonID = full.martian_id;
-            return '<a href="#" id='+buttonID+' class="editmartian btn btn-xs btn-secondary">Edit</a><a href="#" id='+buttonID+' class="deletemartian btn btn-xs btn-danger">Delete</a>';
+            return '<a href="#" id='+buttonID+' class="editmartian btn btn-xs btn-secondary">Edit</a><a href="#" id='+buttonID+' class="delete btn btn-xs btn-danger">Delete</a>';
         }
       }
     ],
